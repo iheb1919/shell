@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <dirent.h>
+#include <sys/types.h>
+int main(main)
+{
+  struct dirent *dr;
+  DIR *director =opendir(".");
+  if (director == NULL)
+    {
+      printf("director NOT FOUND");
+      return(0);
+    }
+  while((dr = readdir(director)) != NULL)
+    printf(" NAME: %s\n",dr->d_name);
+  closedir(director);
+  return(0);
+}
